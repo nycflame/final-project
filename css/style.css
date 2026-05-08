@@ -1,0 +1,645 @@
+/* ============================================
+   Driscoll Chen - Personal Portfolio
+   Final Project - Web Design
+   ============================================ */
+
+/* @font-face: 加载自定义网络字体 */
+@font-face {
+    font-family: 'Inter';
+    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMaz5L7.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMa1pL7.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   1. 基础样式 / Typography
+   ============================================ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1a1a1a;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0a0a0a;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #404040;
+}
+
+/* Link states - 4 个状态 */
+a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:link { color: #2563eb; }
+a:visited { color: #1e40af; }
+a:hover { color: #1d4ed8; text-decoration: underline; }
+a:active { color: #1e3a8a; }
+
+/* ============================================
+   2. 导航栏
+   ============================================ */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0a0a0a;
+}
+.logo:link, .logo:visited { color: #0a0a0a; }
+.logo:hover { color: #2563eb; text-decoration: none; }
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #404040;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-links a.active {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* ============================================
+   3. 主要布局容器
+   ============================================ */
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+section {
+    margin-bottom: 5rem;
+}
+
+.section-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   4. Hero Section (Home page)
+   使用 Grid 做整体布局
+   ============================================ */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: #525252;
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border: 4px solid #fff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: #0a0a0a;
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn:link, .btn:visited { color: #ffffff; }
+.btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #0a0a0a;
+    border: 2px solid #0a0a0a;
+    margin-left: 0.75rem;
+}
+.btn-secondary:link, .btn-secondary:visited { color: #0a0a0a; }
+.btn-secondary:hover {
+    background: #0a0a0a;
+    color: #ffffff;
+}
+
+/* ============================================
+   5. About Section - 使用 Flexbox 单轴排列
+   ============================================ */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.stat-card {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 3px solid #2563eb;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #525252;
+    font-weight: 500;
+}
+
+/* ============================================
+   6. Experience Cards
+   ============================================ */
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.experience-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.experience-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.exp-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.exp-company {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0a0a0a;
+}
+
+.exp-meta {
+    font-size: 0.9rem;
+    color: #737373;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.exp-role {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.exp-details {
+    margin-top: 1rem;
+    display: none;
+}
+
+.exp-details.expanded {
+    display: block;
+}
+
+.exp-details ul {
+    margin-left: 1.25rem;
+    color: #404040;
+}
+
+.exp-details li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.expand-hint {
+    font-size: 0.85rem;
+    color: #737373;
+    font-style: italic;
+    margin-top: 0.75rem;
+}
+
+/* ============================================
+   7. Audio Section
+   ============================================ */
+
+.audio-section {
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.audio-section audio {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 1rem;
+}
+
+/* ============================================
+   8. Beyond Work - Card Grid
+   ============================================ */
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.interest-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.interest-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.interest-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.interest-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   9. Contact Form
+   ============================================ */
+
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    background: #f9fafb;
+    padding: 2.5rem;
+    border-radius: 16px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #404040;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d4d4d8;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #ffffff;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    display: none;
+}
+
+.form-message.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    display: block;
+}
+
+.form-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+    display: block;
+}
+
+/* ============================================
+   10. Footer
+   ============================================ */
+
+footer {
+    background: #0a0a0a;
+    color: #d4d4d8;
+    padding: 3rem 2rem 2rem;
+    margin-top: 5rem;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.footer-content h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.footer-links a {
+    color: #a3a3a3;
+    font-size: 0.95rem;
+}
+.footer-links a:link, .footer-links a:visited { color: #a3a3a3; }
+.footer-links a:hover { color: #ffffff; text-decoration: none; }
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid #262626;
+    color: #737373;
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   11. 响应式设计 - @media query
+   Mobile: 1 列；Desktop: 多列
+   ============================================ */
+
+/* 平板及以上 (768px+) */
+@media (min-width: 768px) {
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+
+    main {
+        padding: 5rem 2rem;
+    }
+
+    .hero {
+        grid-template-columns: 1.3fr 1fr;
+        gap: 4rem;
+    }
+
+    .hero-text h1 {
+        font-size: 4rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 2fr 1fr;
+        gap: 4rem;
+    }
+
+    .interests-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .exp-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-links {
+        justify-content: flex-end;
+    }
+}
+
+/* 大屏 (1024px+) */
+@media (min-width: 1024px) {
+    .hero-text h1 {
+        font-size: 4.5rem;
+    }
+}
+
+/* ============================================
+   12. 动画
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* 主题切换效果 */
+body.dark-mode {
+    background: #0a0a0a;
+    color: #e5e5e5;
+}
+
+body.dark-mode .navbar {
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom-color: #262626;
+}
+
+body.dark-mode .logo,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #ffffff;
+}
+
+body.dark-mode p { color: #d4d4d8; }
+body.dark-mode .nav-links a { color: #d4d4d8; }
+body.dark-mode .stat-card,
+body.dark-mode .audio-section,
+body.dark-mode .contact-form {
+    background: #171717;
+}
+body.dark-mode .experience-card,
+body.dark-mode .interest-card {
+    background: #171717;
+    border-color: #262626;
+}
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #0a0a0a;
+    border-color: #404040;
+    color: #e5e5e5;
+}
