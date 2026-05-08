@@ -3,7 +3,7 @@
    Final Project - Web Design
    ============================================ */
 
-/* @font-face: 加载自定义网络字体 */
+/* @font-face: load custom web font */
 @font-face {
     font-family: 'Inter';
     src: url('https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
@@ -36,7 +36,7 @@
 }
 
 /* ============================================
-   1. 基础样式 / Typography
+   1. Base styles / Typography
    ============================================ */
 
 html {
@@ -82,7 +82,7 @@ p {
     color: #404040;
 }
 
-/* Link states - 4 个状态 */
+/* Link states - all 4 required states */
 a {
     color: #2563eb;
     text-decoration: none;
@@ -94,7 +94,7 @@ a:hover { color: #1d4ed8; text-decoration: underline; }
 a:active { color: #1e3a8a; }
 
 /* ============================================
-   2. 导航栏
+   2. Navigation bar
    ============================================ */
 
 .navbar {
@@ -142,7 +142,7 @@ a:active { color: #1e3a8a; }
 }
 
 /* ============================================
-   3. 主要布局容器
+   3. Main layout container
    ============================================ */
 
 main {
@@ -166,7 +166,7 @@ section {
 
 /* ============================================
    4. Hero Section (Home page)
-   使用 Grid 做整体布局
+   Uses CSS Grid for overall layout
    ============================================ */
 
 .hero {
@@ -239,7 +239,7 @@ section {
 }
 
 /* ============================================
-   5. About Section - 使用 Flexbox 单轴排列
+   5. About Section - uses Flexbox along one axis
    ============================================ */
 
 .about-grid {
@@ -532,11 +532,11 @@ footer {
 }
 
 /* ============================================
-   11. 响应式设计 - @media query
-   Mobile: 1 列；Desktop: 多列
+   11. Responsive design - @media queries
+   Mobile: 1 column; Desktop: multiple columns
    ============================================ */
 
-/* 平板及以上 (768px+) */
+/* Tablet and up (768px+) */
 @media (min-width: 768px) {
     h1 { font-size: 3.5rem; }
     h2 { font-size: 2.5rem; }
@@ -581,7 +581,7 @@ footer {
     }
 }
 
-/* 大屏 (1024px+) */
+/* Large screens (1024px+) */
 @media (min-width: 1024px) {
     .hero-text h1 {
         font-size: 4.5rem;
@@ -589,7 +589,7 @@ footer {
 }
 
 /* ============================================
-   12. 动画
+   12. Animations
    ============================================ */
 
 @keyframes fadeInUp {
@@ -607,7 +607,7 @@ footer {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-/* 主题切换效果 */
+/* Dark mode theme */
 body.dark-mode {
     background: #0a0a0a;
     color: #e5e5e5;
