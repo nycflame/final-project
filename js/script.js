@@ -2,14 +2,14 @@
    Driscoll Chen - Portfolio JavaScript
    Final Project - Web Design
 
-   评分点覆盖:
-   ✓ 至少 2 个 DOM queries
-   ✓ 至少 1 个响应 DOM event 的函数
-   ✓ 函数会更新页面内容/CSS 属性
+   Grading rubric coverage:
+   - At least 2 DOM queries
+   - At least 1 function called in response to a DOM event
+   - The function updates page content and/or CSS properties
    ============================================ */
 
 // ============================================
-// Feature 1: 经历卡片展开/折叠
+// Feature 1: Expand/collapse experience cards
 // DOM Query #1: querySelectorAll
 // DOM Event: click
 // ============================================
@@ -18,16 +18,16 @@ const experienceCards = document.querySelectorAll('.experience-card[data-card]')
 
 experienceCards.forEach(function(card) {
     card.addEventListener('click', function() {
-        // 获取详情区和提示文字
+        // Get the details panel and the hint label
         const details = card.querySelector('.exp-details');
         const hint = card.querySelector('.expand-hint');
 
         if (!details) return;
 
-        // 切换展开状态 - 修改 CSS 类（class）
+        // Toggle the expanded class (modifies CSS via class)
         details.classList.toggle('expanded');
 
-        // 更新提示文字内容（修改 page content）
+        // Update the hint text (modifies page content)
         if (details.classList.contains('expanded')) {
             if (hint) hint.textContent = '▲ Click to collapse';
         } else {
@@ -37,20 +37,20 @@ experienceCards.forEach(function(card) {
 });
 
 // ============================================
-// Feature 2: 主题切换 (Light / Dark Mode)
+// Feature 2: Theme toggle (Light / Dark Mode)
 // DOM Query #2: getElementById
 // DOM Event: click
-// 修改 CSS（通过 class）+ 修改 button 文字内容
+// Modifies CSS (via class) and updates button text
 // ============================================
 
 const themeToggleBtn = document.getElementById('theme-toggle');
 
 if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', function() {
-        // 切换 dark-mode 类（修改 CSS 属性）
+        // Toggle the dark-mode class (modifies CSS properties)
         document.body.classList.toggle('dark-mode');
 
-        // 更新按钮文字（修改 page content）
+        // Update the button text (modifies page content)
         if (document.body.classList.contains('dark-mode')) {
             themeToggleBtn.textContent = '☀️ Switch to Light Mode';
         } else {
@@ -60,9 +60,9 @@ if (themeToggleBtn) {
 }
 
 // ============================================
-// Feature 3: 联系表单验证
-// DOM Query #3: getElementById (表单元素)
-// DOM Event: click on submit
+// Feature 3: Contact form validation
+// DOM Query #3: getElementById (form fields)
+// DOM Event: click on submit button
 // ============================================
 
 const submitBtn = document.getElementById('submit-btn');
@@ -75,19 +75,19 @@ if (submitBtn) {
     submitBtn.addEventListener('click', function(event) {
         event.preventDefault();
 
-        // 获取输入内容
+        // Read input values
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
         const message = messageInput.value.trim();
 
-        // 简单验证
+        // Basic empty-field check
         if (name === '' || email === '' || message === '') {
             feedback.textContent = '⚠️ Please fill in all fields before submitting.';
             feedback.className = 'form-message error';
             return;
         }
 
-        // 邮箱格式验证
+        // Email format validation
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
             feedback.textContent = '⚠️ Please enter a valid email address.';
@@ -95,11 +95,11 @@ if (submitBtn) {
             return;
         }
 
-        // 提交"成功" - 修改页面内容
+        // Success: update page content
         feedback.textContent = '✓ Thanks, ' + name + '! Your message has been recorded. I will get back to you at ' + email + '.';
         feedback.className = 'form-message success';
 
-        // 清空表单
+        // Clear the form
         nameInput.value = '';
         emailInput.value = '';
         messageInput.value = '';
@@ -107,7 +107,7 @@ if (submitBtn) {
 }
 
 // ============================================
-// Feature 4: 滚动时导航栏阴影
+// Feature 4: Navbar shadow on scroll
 // DOM Query #4: querySelector
 // DOM Event: scroll
 // ============================================
@@ -125,8 +125,8 @@ window.addEventListener('scroll', function() {
 });
 
 // ============================================
-// Feature 5: 加载淡入动画
-// 给 main section 添加 fade-in 类
+// Feature 5: Fade-in animation on load
+// Adds the fade-in class to each main section
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
